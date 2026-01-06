@@ -1,0 +1,250 @@
+/* src/App.css */
+
+/* --- 1. Variables & Design Tokens --- */
+:root {
+  --primary: #4f46e5;       /* Student Theme (Indigo) */
+  --primary-hover: #4338ca;
+  
+  --teal: #0f766e;          /* Company Theme (Teal) */
+  --teal-hover: #0d5f58;
+
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --bg-page: #f9fafb;
+  --white: #ffffff;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --radius: 8px;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+}
+
+/* --- 2. Layout Containers --- */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 80vh;
+}
+
+/* Constrains width for Profiles, Logins, Forms */
+.profile-container, 
+.form-container, 
+.landing-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: var(--white);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  text-align: left; /* Aligns form labels left */
+}
+
+/* Wider container for Landing page selection */
+.landing-container {
+  max-width: 900px;
+  text-align: center;
+}
+
+/* --- 3. Navbar Styles --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  background-color: var(--white);
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* --- 4. Form Elements (Inputs & Textareas) --- */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  background-color: #fff;
+  box-sizing: border-box; /* Critical for stopping overflow */
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Side-by-side inputs */
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+.form-row .form-group {
+  flex: 1;
+}
+
+/* --- 5. Buttons --- */
+.btn, .btn-save, .apply-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+/* Primary Button (Student Default) */
+.btn, .btn-save {
+  background-color: var(--primary);
+  color: white;
+}
+.btn:hover, .btn-save:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Logout Button (Subtle) */
+.btn-logout {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-logout:hover {
+  background-color: #fecaca;
+}
+
+/* --- 6. Cards (Landing & University) --- */
+.selection-box {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.card {
+  background: var(--white);
+  padding: 2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  flex: 1;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- 7. Job Grid & Cards --- */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.job-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.job-role { margin: 0 0 5px 0; font-size: 1.1rem; }
+.company-name { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; }
+
+.skills-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+.skill-tag {
+  background: #f3f4f6; color: #374151;
+  padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 500;
+}
+
+/* --- 8. File Upload Box --- */
+.file-upload-box {
+  border: 2px dashed #d1d5db;
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  background-color: #f9fafb;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.file-upload-box:hover {
+  border-color: var(--primary);
+  background-color: #eef2ff;
+}
+
+/* --- 9. Utility: Center Content --- */
+.btn-save-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
